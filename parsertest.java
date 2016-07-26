@@ -367,6 +367,7 @@ public class parsertest {
 		
 		StanfordLemmatizer slem = new StanfordLemmatizer();
 		
+		System.out.println(slem.lemmatize("crowded"));
 		FileWriter fwnn = new FileWriter("day.txt");
 		
 		Properties props = new Properties();
@@ -430,7 +431,7 @@ public class parsertest {
 					    					String add_amod = "";
 								    		String str_gov = target_list_pro.get(modifier_list_pro.indexOf(tempdep.toString().split(",")[0].split("\\(")[1])).split("-")[0].replace(" ","").toLowerCase();
 								    		String str_dep = tempdep.dep().toString().split("/")[0].toLowerCase();
-								    		String str_1 = slem.lemmatize(str_dep).toString().replace("[","").replace("]","");
+								    		String str_1 = str_dep;
 								    		String str_2 = slem.lemmatize(str_gov).toString().replace("[","").replace("]","");
 								    		String str_3 = slem.lemmatize(tempdep.toString().split(",")[0].split("\\(")[1]).toString().split("-")[0].replace("[", "");
 								    		//存下str1+str3,当存在传递的情况时，比如place，要把place相关的pair减去
@@ -485,7 +486,7 @@ public class parsertest {
 								    		String add_amod = "";
 								    		String str_gov = tempdep.gov().toString().split("/")[0].toLowerCase();
 								    		String str_dep = tempdep.dep().toString().split("/")[0].toLowerCase();
-								    		String str_1 = slem.lemmatize(str_dep).toString().replace("[","").replace("]","");
+								    		String str_1 = str_dep;
 								    		String str_2 = slem.lemmatize(str_gov).toString().replace("[","").replace("]","");
 								    		target_list.add(tempdep.toString().split(",")[0].split("\\(")[1]);
 								    		modifier_list.add(tempdep.toString().split(",")[1].split("\\)")[0].replace(" ", ""));
@@ -536,7 +537,7 @@ public class parsertest {
 							    		String add_nsubj = "";
 							    		String str_gov = tempdep.gov().toString().split("/")[0].toLowerCase();
 							    		String str_dep = tempdep.dep().toString().split("/")[0].toLowerCase();
-							    		String str_1 = slem.lemmatize(str_gov).toString().replace("[","").replace("]","");
+							    		String str_1 = str_gov;
 							    		String str_2 = slem.lemmatize(str_dep).toString().replace("[","").replace("]","");
 							    		modifier_list.add(tempdep.toString().split(",")[0].split("\\(")[1]);
 							    		target_list.add(tempdep.toString().split(",")[1].split("\\)")[0].replace(" ", ""));
